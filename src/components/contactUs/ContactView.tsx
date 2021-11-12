@@ -1,4 +1,6 @@
 import React, { useState, FunctionComponent } from 'react'
+import { Footer } from '../footer/Footer';
+import { TopNavBar } from '../topNavBar/TopNavBar';
 
 export const ContactView:FunctionComponent = () => {
     const [name, setName] = useState<string>('');
@@ -17,6 +19,7 @@ export const ContactView:FunctionComponent = () => {
 
     return (
         <div>
+            <TopNavBar/>
             <form>
               <label>
                   Name:
@@ -47,6 +50,7 @@ export const ContactView:FunctionComponent = () => {
                   <textarea name="message" placeholder="please enter your request here"></textarea>
               </label>
             </form>
+            <Footer/>
         </div>
     )
 }
