@@ -1,13 +1,27 @@
 import React from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 import ReactDOM from 'react-dom';
 import './index.css';
+import { HomePage } from './components/HomePage';
+import { AboutView } from './components/about/AboutView';
+import {ServicesView} from './components/service/ServicesView'
+import { ContactView } from './components/contactUs/ContactView';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Routes>
+      <Route path="/contact" element={<ContactView />}/>
+      <Route path="/services" element={<ServicesView />}/>
+      <Route path="/about" element={<AboutView />}/>
+      <Route path="/" element={<App />}/>
+    </Routes>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
