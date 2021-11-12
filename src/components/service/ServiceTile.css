@@ -1,0 +1,35 @@
+.service-card{
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width:22%;
+    height: 600px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.service-card-info{
+    margin: 10px 30px;
+    text-align: left;
+}
+
+.service-card-info h3{
+    font-size: 1.5rem;
+    font-weight: normal;
+    line-height: 3rem;
+    border-bottom: 1px solid black;
+}
+
+.service-card img {
+    width:100%;
+    height: 60%;
+}
+
+.service-card-info .action-button{
+    background-color: #095f73;
+    color: #ffff;
+    font-size: 1.1rem;
+    padding: 10px;
+    border-radius: 5px;
+}

@@ -1,0 +1,30 @@
+.main-nav{
+    background-color:#095f73;
+    height: 500px;
+    width: 100%;
+}
+.main-nav img{
+    height: 300px;
+    margin-top: 90px;
+}
+
+.main-nav .main-nav-options {
+    display:flex;
+    list-style:none;
+    justify-content: space-evenly;
+}
+
+.main-nav .main-nav-options li {
+    font-weight: 500;
+    font-size:1rem;
+    margin-bottom: 30px;
+}
+
+.main-nav .main-nav-options a {
+    text-decoration: none;
+}
+
+.main-nav .main-nav-options a:visited{
+    text-decoration: none;
+    color: black;
+}
