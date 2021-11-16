@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import Button from '@mui/material/Button';
 import deckCleaning from  "../../manwashingdeck.jpg";
 
 import './BannerImage.css'
@@ -14,7 +15,7 @@ export const BannerImage:FunctionComponent = () => {
                     <p>Fair prices, superior quality and exceptional customer 
                         service are gauranteed when you work with us.
                     </p>
-                    <button className='action-button'>Get in Touch</button>
+                    <Button variant="contained">Get in Touch</Button>
                 </div>
             </div>
         </div>

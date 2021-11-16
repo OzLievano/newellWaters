@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import ReactDOM from 'react-dom';
 import './index.css';
-import { HomePage } from './components/HomePage';
 import { AboutView } from './components/about/AboutView';
 import {ServicesView} from './components/service/ServicesView'
 import { ContactView } from './components/contactUs/ContactView';

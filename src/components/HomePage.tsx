@@ -8,11 +8,9 @@ import { TopNavBar } from './topNavBar/TopNavBar';
 export const HomePage:FunctionComponent = () => {
     return (
         <div>
-            <TopNavBar/>
             <BannerImage/>
             <AboutSection/>
             <ServiceSection/>
-            <Footer/>
         </div>
     )
 }

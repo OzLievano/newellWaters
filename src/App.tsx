@@ -1,11 +1,16 @@
 import React from 'react';
-import './App.css';
+import { Footer } from './components/footer/Footer';
 import { HomePage } from './components/HomePage';
+import { TopNavBar } from './components/topNavBar/TopNavBar';
+
+import './App.css'
 
 function App() {
   return (
-    <div>
+    <div className='App'>
+      <TopNavBar/>
       <HomePage/>
+      <Footer/>
     </div>
   );
 }

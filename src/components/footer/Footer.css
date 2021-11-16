@@ -4,5 +4,6 @@
     justify-content: center;
     align-items: center;
     background-color: #e4ecec;
-    height: 100px
+    line-height: 5rem;
+    height: 200px;
 }

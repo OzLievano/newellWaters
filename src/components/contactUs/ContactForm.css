@@ -1,0 +1,10 @@
+.contact-form{
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+}
+
+.contact-text{
+    text-align: center;
+}

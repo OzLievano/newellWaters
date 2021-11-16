@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import './AboutSection.css'
+import Button from '@mui/material/Button';
 import roofImage from '../../manonroof.jpg'
 
 
@@ -19,7 +20,7 @@ export const AboutSection:FunctionComponent = () => {
                 with the highest level of quality. With a focus on personalized 
                 service, competitive rates and customer satisfaction, we’re 
                 always striving to meet and exceed expectations.</p>
-                <button className='action-button'>Learn More</button>
+                <Button variant="contained">Learn More</Button>
             </div>       
             <img src= {roofImage} alt="man on roof"></img>
         </div>
