@@ -31,7 +31,7 @@ export const ContactForm:FunctionComponent = () => {
                     noValidate
                     autoComplete="off"
                 >
-                <div>
+                <div className="first-field">
                     <TextField
                         required
                         id="outlined-required"
@@ -90,7 +90,7 @@ export const ContactForm:FunctionComponent = () => {
                 placeholder="please enter any additional information here"
                 />
             </div>
-            <Button variant="contained">Submit</Button>
+            <Button style={{marginBottom:'30px',marginTop:'10px', marginLeft:'5px'}} variant="contained">Submit</Button>
             </Box>
         </div>
     )
