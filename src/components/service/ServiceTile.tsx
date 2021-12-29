@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ServiceTile.css';
 import Button from '@mui/material/Button';
 export interface ServiceTileProps {
@@ -16,6 +17,7 @@ export const ServiceTile:FunctionComponent<ServiceTileProps> = ({
     serviceLength,
     serviceTitle
 }) => {
+    const navigate = useNavigate();
     return (
         <div className="service-card" key={id}>
             <img src={serviceIcon} 
@@ -25,7 +27,7 @@ export const ServiceTile:FunctionComponent<ServiceTileProps> = ({
                 <h3> {serviceTitle} </h3>
                 <p> {serviceLength} </p>
                 <p> $ {serviceCost}.00 </p>
-                <Button variant="contained"> Book Now </Button>
+                <Button variant="contained" onClick={()=>navigate('/contact')}> Book Now </Button>
             </div>
         </div>
     )

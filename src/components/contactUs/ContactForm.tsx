@@ -9,7 +9,8 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import './ContactForm.css'
 
 export const ContactForm:FunctionComponent = () => {
-    const [name, setName] = useState<string>('');
+    const [firstName, setFirstName] = useState<string>('');
+    const [lastName, setLastName] = useState<string>('');
     const [address, setAddress] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
@@ -36,13 +37,15 @@ export const ContactForm:FunctionComponent = () => {
                         required
                         id="outlined-required"
                         label="First Name"
-                        defaultValue="Enter Your First Name"
+                        placeholder="Enter Your First Name"
+                        value={firstName}
                 />
                     <TextField
                 required
                 id="outlined-required"
                 label="Last Name"
-                defaultValue="Enter Your Last Name"
+                placeholder="Enter Your Last Name"
+                value={lastName}
                 />
             </div>
             <div>
@@ -50,13 +53,15 @@ export const ContactForm:FunctionComponent = () => {
                 required
                 id="outlined-required"
                 label="Email"
-                defaultValue="Enter Your Email"
+                placeholder="Enter Your Email"
+                value={email}
                 />
                 <TextField
                 required
                 id="outlined-required"
                 label="Address"
-                defaultValue="Enter Your Address"
+                placeholder="Enter Your Address"
+                value={address}
                 />
             </div>
             <div>
@@ -64,7 +69,8 @@ export const ContactForm:FunctionComponent = () => {
                 required
                 id="outlined-required"
                 label="Phone Number"
-                defaultValue="Enter Your Phone Number"
+                placeholder="Enter Your Phone Number"
+                value={phone}
                 />
                 <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
                     <InputLabel id="demo-simple-select-label">Services</InputLabel>
