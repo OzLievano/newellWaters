@@ -8,15 +8,24 @@ import Button from '@mui/material/Button';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import './ContactForm.css'
 
-export const ContactForm:FunctionComponent = () => {
-    const [firstName, setFirstName] = useState<string>('');
-    const [lastName, setLastName] = useState<string>('');
-    const [address, setAddress] = useState<string>('');
-    const [email, setEmail] = useState<string>('');
-    const [phone, setPhone] = useState<string>('');
-    const [service, setService] = useState<string>('');
-    const [message,setMessage] = useState<string>('');
+interface FormState {
+    firstName:string 
+    lastName: string
+    address: string
+    email: string
+    phone:string
+    service: string
+    message: string
+}
 
+export const ContactForm:FunctionComponent = () => {
+    const [formState,setFormState] = useState<Partial<FormState>>({})
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>, value: string): void => {
+        setFormState({
+            [e.target.name]: e.target.value
+        })
+    }
     return (
         <div className="contact-form">
             <div className="contact-text">
@@ -38,14 +47,14 @@ export const ContactForm:FunctionComponent = () => {
                         id="outlined-required"
                         label="First Name"
                         placeholder="Enter Your First Name"
-                        value={firstName}
+                        value={formState.firstName}
                 />
                     <TextField
                 required
                 id="outlined-required"
                 label="Last Name"
                 placeholder="Enter Your Last Name"
-                value={lastName}
+                value={formState.lastName}
                 />
             </div>
             <div>
@@ -54,14 +63,14 @@ export const ContactForm:FunctionComponent = () => {
                 id="outlined-required"
                 label="Email"
                 placeholder="Enter Your Email"
-                value={email}
+                value={formState.email}
                 />
                 <TextField
                 required
                 id="outlined-required"
                 label="Address"
                 placeholder="Enter Your Address"
-                value={address}
+                value={formState.address}
                 />
             </div>
             <div>
@@ -70,20 +79,16 @@ export const ContactForm:FunctionComponent = () => {
                 id="outlined-required"
                 label="Phone Number"
                 placeholder="Enter Your Phone Number"
-                value={phone}
+                value={formState.phone}
                 />
                 <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
                     <InputLabel id="demo-simple-select-label">Services</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
+                    <TextField required
                         id="demo-simple-select"
-                        value={service}
+                        value={formState.service}
                         label="Services"
-                    >
-                        <MenuItem value="consultations">Consultations</MenuItem>
-                        <MenuItem value="concrete surfaces">Concrete Surfaces</MenuItem>
-                        <MenuItem value="wood surfaces">Wood Surfaces</MenuItem>
-                    </Select>
+                        placeholder='Wood, Concrete, or Consultation Services'
+                    />
                 </FormControl>
             </div>
             <div>
@@ -92,7 +97,7 @@ export const ContactForm:FunctionComponent = () => {
                 label="Additional Information"
                 multiline
                 maxRows={4}
-                value={message}
+                value={formState.message}
                 placeholder="please enter any additional information here"
                 />
             </div>
