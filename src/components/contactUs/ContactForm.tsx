@@ -1,31 +1,45 @@
 import React, { useState, FunctionComponent } from 'react'
-import Box from '@mui/material/Box';
-import MenuItem from '@mui/material/MenuItem';
-import InputLabel from '@mui/material/InputLabel';
-import TextField from '@mui/material/TextField'
-import FormControl from '@mui/material/FormControl';
-import Button from '@mui/material/Button';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import axios from 'axios'
+
 import './ContactForm.css'
 
-interface FormState {
-    firstName:string 
-    lastName: string
-    address: string
-    email: string
+
+export interface FormState {
+    firstName:string
+    lastName:string
+    address:string
+    email:string
     phone:string
-    service: string
-    message: string
+    service:string
+    message:string
 }
+export const ContactForm = () => {
+    const [formState,setFormState] = useState<Partial<FormState>>({
+        firstName:"",
+        lastName:"",
+        address:"",
+        email:"",
+        phone:"",
+        service:"",
+        message:"" 
+    });
 
-export const ContactForm:FunctionComponent = () => {
-    const [formState,setFormState] = useState<Partial<FormState>>({})
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>, value: string): void => {
-        setFormState({
-            [e.target.name]: e.target.value
-        })
+    const handleChange =(e:React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>):void => {
+        setFormState({...formState,[e.currentTarget.name]:e.currentTarget.value})
     }
+
+    const submitHandler = (e:any) => {
+        e.preventDefault();
+    
+        axios.post('https://sheet.best/api/sheets/27551cfc-e2ec-4757-8374-ab82b4b17e97', formState)
+        .then(response => {
+          console.log(response);
+        })
+        console.log(formState);
+
+        setFormState(formState);
+      }
+
     return (
         <div className="contact-form">
             <div className="contact-text">
@@ -33,76 +47,24 @@ export const ContactForm:FunctionComponent = () => {
                <p>6121 King George Dr. Charlotte, North Carolina</p>
                <p>support@newellpressurewash.com</p> 
             </div>
-            <Box 
-                    component="form"
-                    sx={{
-            '& .MuiTextField-root': { m: 1, width: '25ch' },
-        }}
-                    noValidate
-                    autoComplete="off"
-                >
-                <div className="first-field">
-                    <TextField
-                        required
-                        id="outlined-required"
-                        label="First Name"
-                        placeholder="Enter Your First Name"
-                        value={formState.firstName}
-                />
-                    <TextField
-                required
-                id="outlined-required"
-                label="Last Name"
-                placeholder="Enter Your Last Name"
-                value={formState.lastName}
-                />
+            <div className="form-inputs">
+                <h1> Please Enter Your Contact Information </h1>
+                First Name:
+                <input type="text" name="firstName" placeholder='Enter your first name' onChange={handleChange} value={formState.firstName}/>
+                Last Name:
+                <input type="text" name="lastName" placeholder='Enter your last name' onChange={handleChange} value={formState.lastName}/>
+                Address:
+                <input type="text" name="address" placeholder='Enter your address' onChange={handleChange} value={formState.address}/>
+                Email:
+                <input type="text" name="email" placeholder='Enter your email' onChange={handleChange} value={formState.email}/>
+                Phone Number:
+                <input type="text" name="phone" placeholder='Enter your phone #' onChange={handleChange} value={formState.phone}/>
+                Service:
+                <input type="text" name="service" placeholder='Describe your service' onChange={handleChange} value={formState.service}/>
+                Additional Information:
+                <textarea name="message" placeholder='Any Additional Info' onChange={handleChange} value={formState.message}/>
+                <button onClick={submitHandler}>Submit</button>
             </div>
-            <div>
-                <TextField
-                required
-                id="outlined-required"
-                label="Email"
-                placeholder="Enter Your Email"
-                value={formState.email}
-                />
-                <TextField
-                required
-                id="outlined-required"
-                label="Address"
-                placeholder="Enter Your Address"
-                value={formState.address}
-                />
-            </div>
-            <div>
-                <TextField
-                required
-                id="outlined-required"
-                label="Phone Number"
-                placeholder="Enter Your Phone Number"
-                value={formState.phone}
-                />
-                <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
-                    <InputLabel id="demo-simple-select-label">Services</InputLabel>
-                    <TextField required
-                        id="demo-simple-select"
-                        value={formState.service}
-                        label="Services"
-                        placeholder='Wood, Concrete, or Consultation Services'
-                    />
-                </FormControl>
-            </div>
-            <div>
-                <TextField
-                id="outlined-multiline-flexible"
-                label="Additional Information"
-                multiline
-                maxRows={4}
-                value={formState.message}
-                placeholder="please enter any additional information here"
-                />
-            </div>
-            <Button style={{marginBottom:'30px',marginTop:'10px', marginLeft:'5px'}} variant="contained">Submit</Button>
-            </Box>
         </div>
     )
 }
