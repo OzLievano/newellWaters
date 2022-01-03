@@ -29,6 +29,8 @@
     margin-bottom: 30px;
 }
 
-.about-section-additional Button {
+.about-section-additional .action-button {
     margin-bottom: 100px;
+    background-color: #095f73;
 }
+

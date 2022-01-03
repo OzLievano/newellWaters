@@ -11,11 +11,11 @@ export const BannerImage:FunctionComponent = () => {
             <div className='main-body-description'>
                 <div className='main-body-action'>
                     <h1>NEWELL PRESSURE WASH</h1>
-                    <h5><i>We keep thing simple &amp; clean.</i></h5>
+                    <h5><i>We keep things simple &amp; clean.</i></h5>
                     <p>Fair prices, superior quality and exceptional customer 
                         service are gauranteed when you work with us.
                     </p>
-                    <Button variant="contained">Get in Touch</Button>
+                    <Button variant="contained" className='action-button'>Get in Touch</Button>
                 </div>
             </div>
         </div>

@@ -20,7 +20,7 @@ export const AboutSection:FunctionComponent = () => {
                 with the highest level of quality. With a focus on personalized 
                 service, competitive rates and customer satisfaction, we’re 
                 always striving to meet and exceed expectations.</p>
-                <Button variant="contained">Learn More</Button>
+                <Button variant="contained" className="about-button">Learn More</Button>
             </div>       
             <img src= {roofImage} alt="man on roof"></img>
         </div>

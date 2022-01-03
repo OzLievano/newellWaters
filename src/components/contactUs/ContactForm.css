@@ -26,6 +26,8 @@
     margin-top: 30px;
 }
 
-.button-form{
+.form-inputs .action-button{
+    background-color: #095f73; ;
+    margin-top:30px;
     margin-bottom: 30px;
 }

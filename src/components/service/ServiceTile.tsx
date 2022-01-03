@@ -27,7 +27,7 @@ export const ServiceTile:FunctionComponent<ServiceTileProps> = ({
                 <h3> {serviceTitle} </h3>
                 <p> {serviceLength} </p>
                 <p> $ {serviceCost}.00 </p>
-                <Button variant="contained" onClick={()=>navigate('/contact')}> Book Now </Button>
+                <Button variant="contained" className='action-button' onClick={()=>navigate('/contact')}> Book Now </Button>
             </div>
         </div>
     )

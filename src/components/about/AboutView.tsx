@@ -27,7 +27,7 @@ export const AboutView:FunctionComponent = () => {
                     and go above and beyond to form lasting relationships with 
                     our clients.
                 </p>
-                <Button variant="contained" onClick={()=>{navigate('/contact')}}> Contact Us </Button>
+                <Button variant="contained" className='action-button' onClick={()=>{navigate('/contact')}}> Contact Us </Button>
             </div>
             <Footer/>
         </div>

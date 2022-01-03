@@ -1,4 +1,6 @@
 import React, { useState, FunctionComponent } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Button from '@mui/material/Button';
 import axios from 'axios'
 
 import './ContactForm.css'
@@ -14,6 +16,7 @@ export interface FormState {
     message:string
 }
 export const ContactForm = () => {
+    const navigate = useNavigate();
     const [formState,setFormState] = useState<Partial<FormState>>({
         firstName:"",
         lastName:"",
@@ -37,15 +40,24 @@ export const ContactForm = () => {
         })
         console.log(formState);
 
-        setFormState(formState);
+        setFormState({firstName:"",
+        lastName:"",
+        address:"",
+        email:"",
+        phone:"",
+        service:"",
+        message:"" });
+
+        const navigateTo = ()=> navigate('/thankyou')
+        navigateTo()
       }
 
     return (
-        <div className="contact-form">
+        <div className="contact-form" >
             <div className="contact-text">
                <h1>GET IN TOUCH</h1>
-               <p>6121 King George Dr. Charlotte, North Carolina</p>
-               <p>support@newellpressurewash.com</p> 
+               <p><b>Phone Number:</b> 305-781-4764</p>
+               <p><b>Email:</b> support@newellpressurewash.com</p> 
             </div>
             <div className="form-inputs">
                 <h1> Please Enter Your Contact Information </h1>
@@ -63,7 +75,7 @@ export const ContactForm = () => {
                 <input type="text" name="service" placeholder='Describe your service' onChange={handleChange} value={formState.service}/>
                 Additional Information:
                 <textarea name="message" placeholder='Any Additional Info' onChange={handleChange} value={formState.message}/>
-                <button onClick={submitHandler}>Submit</button>
+                <Button variant="contained" className='action-button' onClick={submitHandler}>Submit</Button>
             </div>
         </div>
     )

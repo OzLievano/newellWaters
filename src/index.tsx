@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { AboutView } from './components/about/AboutView';
 import {ServicesView} from './components/service/ServicesView'
+import {ThankYouContact} from './components/contactUs/ThankYouContact'
 import { ContactView } from './components/contactUs/ContactView';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -15,6 +16,7 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
+      <Route path="/thankyou" element={<ThankYouContact/>}/>
       <Route path="/contact" element={<ContactView />}/>
       <Route path="/services" element={<ServicesView />}/>
       <Route path="/about" element={<AboutView />}/>
